@@ -5,8 +5,8 @@
     <description>Personal Webcard</description>
     <link>http://www.adambiro.eu//</link>
     <atom:link href="http://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 01 Nov 2015 16:36:59 +0000</pubDate>
-    <lastBuildDate>Sun, 01 Nov 2015 16:36:59 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Nov 2015 23:54:22 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Nov 2015 23:54:22 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -20,6 +20,34 @@
         <guid isPermaLink="true">http://www.adambiro.eu//jekyll/2015/10/28/meet-jira-software/</guid>
         
         <category>jira, agile, software development</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>Fibonacci sequence (part 1)</title>
+        <description>&lt;p&gt;The &lt;strong&gt;Fibonacci&lt;/strong&gt; sequence is named after Italian mathematician &lt;a href=&quot;https://en.wikipedia.org/wiki/Fibonacci_number&quot; title=&quot;Fibonacci&quot;&gt;Fibonacci&lt;/a&gt;. 
+His &lt;em&gt;1202 book Liber Abaci&lt;/em&gt; introduced the sequence to Western European mathematics, although the sequence had been described earlier in Indian mathematics.&lt;/p&gt;
+
+&lt;p&gt;The Fibonacci numbers or sequence is: 0,1,1,2,3,5,8,13,21,34,55,89,144…&lt;/p&gt;
+
+&lt;p&gt;Each number is the sum of the previous two numbers. In mathematical terms: &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fn=Fn−1+Fn−2 where F0=0,F1=1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Fibonacci numbers can be computed in several different ways. The following solution calculates each fibonacci number in sequence:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/biroa/f8ec3349e3544700f1c1.js&quot;&gt;&lt;/script&gt;
+</description>
+        <pubDate>Wed, 28 Oct 2015 12:31:19 +0000</pubDate>
+        <link>http://www.adambiro.eu//jekyll/2015/10/28/fibonacci-sequence/</link>
+        <guid isPermaLink="true">http://www.adambiro.eu//jekyll/2015/10/28/fibonacci-sequence/</guid>
+        
+        <category>algorithms, fibonacci sequence, software development</category>
         
         
         <category>jekyll</category>
