@@ -5,12 +5,12 @@
     <description>Personal Webcard</description>
     <link>http://www.adambiro.eu//</link>
     <atom:link href="http://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 08 Nov 2015 14:03:34 +0000</pubDate>
-    <lastBuildDate>Sun, 08 Nov 2015 14:03:34 +0000</lastBuildDate>
+    <pubDate>Mon, 16 Nov 2015 22:14:01 +0000</pubDate>
+    <lastBuildDate>Mon, 16 Nov 2015 22:14:01 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>Fibonacci sequence (part 1)</title>
+        <title>Fibonacci sequence in php (part 1)</title>
         <description>&lt;p&gt;The &lt;strong&gt;Fibonacci&lt;/strong&gt; sequence is named after Italian mathematician &lt;a href=&quot;https://en.wikipedia.org/wiki/Fibonacci_number&quot; title=&quot;Fibonacci&quot;&gt;Fibonacci&lt;/a&gt;. 
 His &lt;em&gt;1202 book Liber Abaci&lt;/em&gt; introduced the sequence to Western European mathematics, although the sequence had been described earlier in Indian mathematics.&lt;/p&gt;
 
@@ -27,13 +27,13 @@ His &lt;em&gt;1202 book Liber Abaci&lt;/em&gt; introduced the sequence to Wester
 &lt;script src=&quot;https://gist.github.com/biroa/f8ec3349e3544700f1c1.js&quot;&gt;&lt;/script&gt;
 </description>
         <pubDate>Tue, 03 Nov 2015 12:00:00 +0000</pubDate>
-        <link>http://www.adambiro.eu//jekyll/2015/11/03/fibonacci-sequence/</link>
-        <guid isPermaLink="true">http://www.adambiro.eu//jekyll/2015/11/03/fibonacci-sequence/</guid>
+        <link>http://www.adambiro.eu//algorithms/2015/11/03/fibonacci-sequence/</link>
+        <guid isPermaLink="true">http://www.adambiro.eu//algorithms/2015/11/03/fibonacci-sequence/</guid>
         
-        <category>algorithms, fibonacci sequence, software development</category>
+        <category>algorithms, fibonacci sequence, php, coding</category>
         
         
-        <category>jekyll</category>
+        <category>algorithms</category>
         
       </item>
     

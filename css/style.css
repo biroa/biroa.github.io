@@ -34,6 +34,10 @@ a:hover {
 ul {
   list-style-type: none; }
 
+.mainCategory {
+  color: #FDCF73;
+  text-transform: uppercase; }
+
 ul.references a, ul.references a:active {
   color: #FDCF73; }
 ul.references a:hover {
