@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Fibonacci sequence in php recursively (part 2)",
+    "category" : "",
+    "tags"     : "algorithms, fibonacci sequence, php, coding",
+    "url"      : "/algorithms/2015/11/17/fibonacci-sequence-recusively/",
+    "date"     : "2015-11-17 10:32:00 +0000"
+    } ,
+    
+  {
     "title"    : "Fibonacci sequence in php (part 1)",
     "category" : "",
     "tags"     : "algorithms, fibonacci sequence, php, coding",

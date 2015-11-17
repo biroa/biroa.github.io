@@ -5,9 +5,27 @@
     <description>Personal Webcard</description>
     <link>http://www.adambiro.eu//</link>
     <atom:link href="http://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 17 Nov 2015 22:18:08 +0000</pubDate>
-    <lastBuildDate>Tue, 17 Nov 2015 22:18:08 +0000</lastBuildDate>
+    <pubDate>Tue, 17 Nov 2015 22:55:24 +0000</pubDate>
+    <lastBuildDate>Tue, 17 Nov 2015 22:55:24 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Fibonacci sequence in php recursively (part 2)</title>
+        <description>&lt;p&gt;Last time we checked the implementation of the &lt;a href=&quot;http://adambiro.eu/algorithms/2015/11/03/fibonacci-sequence/&quot; title=&quot;Fibonacci&quot;&gt;&lt;strong&gt;Fibonacci&lt;/strong&gt; sequence with for loops&lt;/a&gt;.
+A this time I would like to present the recursive approach for the issue.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/biroa/04f4d4b48c21a2447bff.js&quot;&gt;&lt;/script&gt;
+</description>
+        <pubDate>Tue, 17 Nov 2015 10:32:00 +0000</pubDate>
+        <link>http://www.adambiro.eu//algorithms/2015/11/17/fibonacci-sequence-recusively/</link>
+        <guid isPermaLink="true">http://www.adambiro.eu//algorithms/2015/11/17/fibonacci-sequence-recusively/</guid>
+        
+        <category>algorithms, fibonacci sequence, php, coding</category>
+        
+        
+        <category>algorithms</category>
+        
+      </item>
     
       <item>
         <title>Fibonacci sequence in php (part 1)</title>

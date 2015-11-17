@@ -1,100 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-    <loc>http://adambiro.eu/algorithms/2015/11/03/fibonacci-sequence/</loc>
-    <lastmod>2015-11-03</lastmod>
-</url>
+    <url>
+        <loc>http://adambiro.eu/algorithms/2015/11/17/fibonacci-sequence-recusively/</loc>
+	<lastmod>2015-11-17</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://adambiro.eu/algorithms/2015/11/03/fibonacci-sequence/</loc>
+	<lastmod>2015-11-03</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://adambiro.eu/jekyll/2015/10/28/meet-jira-software/</loc>
+	<lastmod>2015-10-28</lastmod>
+    </url>
+    
+    <url>
+        <loc>http://adambiro.eu/jekyll/2015/10/27/site-has-launched/</loc>
+	<lastmod>2015-10-27</lastmod>
+    </url>
+    
 
-<url>
-    <loc>http://adambiro.eu/jekyll/2015/10/28/meet-jira-software/</loc>
-    <lastmod>2015-10-28</lastmod>
-</url>
-
-<url>
-    <loc>http://adambiro.eu/jekyll/2015/10/27/site-has-launched/</loc>
-    <lastmod>2015-10-27</lastmod>
-</url>
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/404.html</loc>
-</url>
-
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/contact/</loc>
-</url>
-
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/education/</loc>
-</url>
-
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/experiences/</loc>
-</url>
-
-
-
-
-
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/</loc>
-</url>
-
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/posts/</loc>
-</url>
-
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/references/</loc>
-</url>
-
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/search/</loc>
-</url>
-
-
-
-
-
-<url>
-    <loc>http://adambiro.eu/search.json</loc>
-</url>
-
-
-
-
-
-
-
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/404.html</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/contact/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/education/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/experiences/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/posts/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/references/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/search/</loc>
+    </url>
+    
+    
+    
+    
+    
+    <url>
+        <loc>http://adambiro.eu/search.json</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
 </urlset>
