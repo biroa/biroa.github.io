@@ -38,11 +38,13 @@ ul {
   color: #AAB6A2;
   text-transform: uppercase; }
 
-ul.references a, ul.references a:active {
-  color: #AAB6A2; }
-ul.references a:hover {
-  color: #FFFFFF;
-  text-decoration: underline; }
+ul.references {
+  padding-left: 0px !important; }
+  ul.references a, ul.references a:active {
+    color: #AAB6A2; }
+  ul.references a:hover {
+    color: #FFFFFF;
+    text-decoration: underline; }
 
 .navbar, .nav {
   background-color: #215A6D; }
