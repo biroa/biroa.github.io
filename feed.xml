@@ -5,13 +5,32 @@
     <description>Personal Webcard</description>
     <link>http://www.adambiro.eu//</link>
     <atom:link href="http://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 21 Jun 2017 16:42:14 +0200</pubDate>
-    <lastBuildDate>Wed, 21 Jun 2017 16:42:14 +0200</lastBuildDate>
+    <pubDate>Wed, 21 Jun 2017 18:15:46 +0200</pubDate>
+    <lastBuildDate>Wed, 21 Jun 2017 18:15:46 +0200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
         <title>Redesign the page</title>
         <description>&lt;p&gt;After a long time I was able to redesign the original template which I had choosen.  I wanted a refreshing style instead of a dark one.  I am not saying I don&amp;#39;t like the dark colors and shades but I thought it was high time to make some changes on the current layout. While the previous look out based on Jacob Tomlinson&amp;#39;s &lt;a href=&quot;https://github.com/jacobtomlinson/carte-noire&quot;&gt;template&lt;/a&gt;  the current one is my own implementation.  I know it could be much better but I would like to highlight that I am not a designer :).&lt;/p&gt;
+
+&lt;div&gt;
+&lt;h3&gt;Main page&lt;/h3&gt;
+
+&lt;a class=&quot;example-image-link&quot; href=&quot;http://jekyll-blog.com/assets/main_page.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Click the right half of the image to move forward.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://jekyll-blog.com/assets/main_page.png&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;
+
+&lt;h3&gt;The Menu with the layout&lt;/h3&gt;           
+            
+      &lt;a class=&quot;example-image-link&quot; href=&quot;http://jekyll-blog.com/assets/layout_with_menu.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://jekyll-blog.com/assets/layout_with_menu.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+
+&lt;h3&gt;Article page&lt;/h3&gt;
+
+            &lt;a class=&quot;example-image-link&quot; href=&quot;http://jekyll-blog.com/assets/article_with_styled_gist.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;The next image in the set is preloaded as you're viewing.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://jekyll-blog.com/assets/article_with_styled_gist.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+
+&lt;h3&gt;Contact Page&lt;/h3&gt;
+
+            &lt;a class=&quot;example-image-link&quot; href=&quot;http://jekyll-blog.com/assets/contact_page_with_google_maps.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Click anywhere outside the image or the X to the right to close.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://jekyll-blog.com/assets/contact_page_with_google_maps.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+            
+&lt;/div&gt;
 </description>
         <pubDate>Wed, 07 Jun 2017 13:32:58 +0200</pubDate>
         <link>http://www.adambiro.eu//jekyll/update/2017/06/07/redesign-the-page/</link>
