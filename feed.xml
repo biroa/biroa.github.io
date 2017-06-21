@@ -5,8 +5,8 @@
     <description>Personal Webcard</description>
     <link>http://www.adambiro.eu//</link>
     <atom:link href="http://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 21 Jun 2017 18:15:46 +0200</pubDate>
-    <lastBuildDate>Wed, 21 Jun 2017 18:15:46 +0200</lastBuildDate>
+    <pubDate>Wed, 21 Jun 2017 21:39:50 +0200</pubDate>
+    <lastBuildDate>Wed, 21 Jun 2017 21:39:50 +0200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -16,19 +16,19 @@
 &lt;div&gt;
 &lt;h3&gt;Main page&lt;/h3&gt;
 
-&lt;a class=&quot;example-image-link&quot; href=&quot;http://jekyll-blog.com/assets/main_page.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Click the right half of the image to move forward.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://jekyll-blog.com/assets/main_page.png&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;
+&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/main_page.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Click the right half of the image to move forward.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://adambiro.eu/assets/main_page.png&quot; alt=&quot;&quot;/&gt;&lt;/a&gt;
 
 &lt;h3&gt;The Menu with the layout&lt;/h3&gt;           
             
-      &lt;a class=&quot;example-image-link&quot; href=&quot;http://jekyll-blog.com/assets/layout_with_menu.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://jekyll-blog.com/assets/layout_with_menu.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+      &lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/layout_with_menu.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://adambiro.eu/assets/layout_with_menu.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
 
 &lt;h3&gt;Article page&lt;/h3&gt;
 
-            &lt;a class=&quot;example-image-link&quot; href=&quot;http://jekyll-blog.com/assets/article_with_styled_gist.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;The next image in the set is preloaded as you're viewing.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://jekyll-blog.com/assets/article_with_styled_gist.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+            &lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/article_with_styled_gist.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;The next image in the set is preloaded as you're viewing.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://adambiro.eu/assets/article_with_styled_gist.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
 
 &lt;h3&gt;Contact Page&lt;/h3&gt;
 
-            &lt;a class=&quot;example-image-link&quot; href=&quot;http://jekyll-blog.com/assets/contact_page_with_google_maps.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Click anywhere outside the image or the X to the right to close.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://jekyll-blog.com/assets/contact_page_with_google_maps.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+            &lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/contact_page_with_google_maps.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Click anywhere outside the image or the X to the right to close.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://adambiro.eu/assets/contact_page_with_google_maps.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
             
 &lt;/div&gt;
 </description>
