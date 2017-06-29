@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Important Linux Commands</title>
-  <meta name="description" content="Changeing the font-size in the console under Ubuntu server">
+  <title>Important Linux commands</title>
+  <meta name="description" content="Glossary for Linux Commands  Console font-size    The Screen program">
   <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="/css/new_main.css">
   <link rel="stylesheet" href="/css/gistStyle.css">
   <link rel="stylesheet" href="/css/lightbox.css">
-  <link rel="canonical" href="http://0.0.0.0:2999/linux/2017/06/28/important-linux-commands/">
-  <link rel="alternate" type="application/rss+xml" title="adambiro.eu" href="http://0.0.0.0:2999/feed.xml" />
+  <link rel="canonical" href="http://www.adambiro.eu//linux/2017/06/28/important-linux-commands/">
+  <link rel="alternate" type="application/rss+xml" title="adambiro.eu" href="http://www.adambiro.eu//feed.xml" />
   <script>
     var map;
     function initMap() {
@@ -288,38 +288,77 @@
 
 <div class="box middle-box box-image">
   <div class="inner-style">
-    <h1 class="box-header">Important Linux Commands</h1>
+    <h1 class="box-header">Important Linux commands</h1>
     <h4 class="post-meta">Jun 28, 2017</h4>
   </div>
   
   <div class="post">
     <article class="post-content post-block">
-      <h3>Changeing the font-size in the console under Ubuntu server</h3>
-
-<h5>Changing the font-size under a linux server can be useful. Although, it is not a common issue but when we are using virtualization and we do not have ssh then it can be important.</h5>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo dpkg-reconfigure console-setup
-</code></pre></div>
-<h3>About the screen program</h3>
+      <h2>Glossary for Linux Commands</h2>
 
 <ul>
-<li>Screen is a full-screen software program </li>
-<li>When you are dealing with multiple programs from a command line interface then you can  separate programs from the terminal shell with the usage of screen.</li>
-<li>  It also allows you to share your sessions with others users and detach/attach terminal sessions.</li>
+  <li><a href="#console-font-size">Console font-size</a></li>
+    <li><a href="#screen">The Screen program</a></li>
 </ul>
 
-<h5>Important commands</h5>
+<div id="console-font-size"></div>
+
+<h2>Changing the font-size in the console under Ubuntu server.</h2>
+
+<p>Modify the font-size on Linux server can be useful. Although it is not a standard issue in spite of this when we are using virtualization, and we do not have ssh, then it can be substantial.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">sudo dpkg-reconfigure console-setup
+</code></pre></div>
+<div id="screen"></div>
+
+<h2>About the screen program</h2>
 
 <ul>
-<li>  <strong>Install:</strong> sudo apt-get install screen</li>
-<li>  <strong>Listing:</strong> screen -ls</li>
-<li>  <strong>Enter the screen:</strong> screen</li>
-<li>  <strong>Detach screen:</strong> ctrl+a+d</li>
-<li>  <strong>Re-attach screen:</strong> screen -r [pid]</li>
-<li><strong>Running named screen as deamon:</strong> screen -dmS [whatever-name]</li>
-<li><strong>Destroy screen:</strong> screen [pid] kill</li>
+<li>  The Screen is a full-screen software program.</li>
+<li>  When you are dealing with multiple programs from a command line interface, then you can separate programs from the terminal shell with the use of Screen. </li>
+<li>It also allows you to share your sessions with other users and detach/attach terminal sessions.</li>
+</ul>
+
+<h3>Important commands</h3>
+
+<ul>
+<li><strong>Install:</strong> 
+<code>
+sudo apt-get install screen
+</code></li>
+<li>  <strong>Listing:</strong> 
+<code>
+screen -ls
+</code></li>
+<li><strong>Enter the screen:</strong> 
+<code>
+screen
+</code></li>
+<li>  <strong>Detach screen:</strong> 
+<code>
+ctrl+a+d
+</code></li>
+<li>  <strong>Re-attach screen:</strong> 
+<code>
+screen -r [pid]
+</code></li>
+<li>  <strong>Running named screen as deamon:</strong> 
+<code>
+screen -dmS [whatever-name]
+</code></li>
+<li>  <strong>Destroy screen:</strong> 
+<code>
+screen [pid] kill
+</code></li>
 </ul>
 
   
+      
+      <div class="tags">
+        <small>
+          <i class="fa fa-tags"></i>
+          linux,, commands,, kow-how
+        </small>
+      </div>
       
       
       
