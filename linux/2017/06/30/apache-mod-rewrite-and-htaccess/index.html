@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>adambiro.eu</title>
-  <meta name="description" content="Personal Webcard">
+  <title>Apache mod_rewrite and .htaccess</title>
+  <meta name="description" content="What is mod_rewrite?">
   <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/css/new_main.css">
   <link rel="stylesheet" href="/css/gistStyle.css">
   <link rel="stylesheet" href="/css/lightbox.css">
-  <link rel="canonical" href="http://www.adambiro.eu//">
+  <link rel="canonical" href="http://www.adambiro.eu//linux/2017/06/30/apache-mod-rewrite-and-htaccess/">
   <link rel="alternate" type="application/rss+xml" title="adambiro.eu" href="http://www.adambiro.eu//feed.xml" />
   <script>
     var map;
@@ -276,58 +276,111 @@
     <img src="/img/me.jpg" alt="..." class="img-circle">
 </div>
 
-<div class="box middle-box box-image">
-    <div class="inner-style">
-        <h1 class="box-header">Posts</h1>
-      <ul class="box-list info">
-          
-        
-          <li>
-              <h2>
-                  <i class="fa fa-usd" aria-hidden="true"></i>
-                  <a class="post-link" href="/linux/2017/06/30/apache-mod-rewrite-and-htaccess/">Apache mod_rewrite and .htaccess</a>
-            </h2>
-            <span class="post-meta">/Jun 30, 2017/</span>
-          </li>
-        
-          <li>
-              <h2>
-                  <i class="fa fa-usd" aria-hidden="true"></i>
-                  <a class="post-link" href="/linux/2017/06/28/important-linux-commands/">Important Linux commands</a>
-            </h2>
-            <span class="post-meta">/Jun 28, 2017/</span>
-          </li>
-        
-          <li>
-              <h2>
-                  <i class="fa fa-usd" aria-hidden="true"></i>
-                  <a class="post-link" href="/jekyll/update/2017/06/07/redesign-the-page/">Redesign the page</a>
-            </h2>
-            <span class="post-meta">/Jun 7, 2017/</span>
-          </li>
-        
-          <li>
-              <h2>
-                  <i class="fa fa-usd" aria-hidden="true"></i>
-                  <a class="post-link" href="/algorithms/2015/11/17/fibonacci-sequence-recusively/">Fibonacci sequence in php recursively (part 2)</a>
-            </h2>
-            <span class="post-meta">/Nov 17, 2015/</span>
-          </li>
-        
-          <li>
-              <h2>
-                  <i class="fa fa-usd" aria-hidden="true"></i>
-                  <a class="post-link" href="/algorithms/2015/11/03/fibonacci-sequence/">Fibonacci sequence in php (part 1)</a>
-            </h2>
-            <span class="post-meta">/Nov 3, 2015/</span>
-          </li>
-        
-          <li><h3 class="position-center"><a href="/list-posts">Show more ...</a></h3></li>
-      </ul>
-    </div>
-</div>
-<!-- Footer -->
 <div class="box bottom-box">
+  <div class="pagination-box">
+    
+    <span class="float-left paginate"><a href="/linux/2017/06/28/important-linux-commands/"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;&nbsp;Previous</a></span>
+    
+    
+  </div>
+</div>
+
+
+<div class="box middle-box box-image">
+  <div class="inner-style">
+    <h1 class="box-header">Apache mod_rewrite and .htaccess</h1>
+    <h4 class="post-meta">Jun 30, 2017</h4>
+  </div>
+  
+  <div class="post">
+    <article class="post-content post-block">
+      <h4>What is mod_rewrite?</h4>
+
+<p>Mod_rewrite is an Apache web server module. It does not have to be installed or enabled by default.
+Mod_rewrite manipulates browser-submitted URLs.  It translates them to deliver content to the browser. 
+The module disguises how and from where content is serving.<br>
+It increases site security. It also benefits sites that utilize search engines, since search engines work best with static URLs. 
+Mod_rewrite removes the dynamic portion of the URL (eg: index.php ... ), so it converts to static format, thus preventing potential conflicts and increasing site visibility.</p>
+
+<h4>Turn on mod_rewrite</h4>
+<div class="highlight"><pre><code class="language-" data-lang="">sudo a2enmod rewrite
+</code></pre></div>
+<h4>What is .htaccess?</h4>
+
+<p>.htaccess is a configuration file of Apache Web Server. When a .htaccess file is placed in a directory, it will be loaded by the Apache Web Server. When the .htaccess file is detected and executed by Apache, it will alter the web server configuration by enabling/disabling additional functionality. These modifications can be, e.g., redirections.  For instance, if a 404 file not found error occurs</p>
+
+<h4>Set .htaccess for the most common situations</h4>
+<div class="highlight"><pre><code class="language-" data-lang="">&lt;IfModule mod_rewrite.c&gt;
+    &lt;IfModule mod_negotiation.c&gt;
+        Options -MultiViews
+    &lt;/IfModule&gt;
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+&lt;/IfModule&gt;
+</code></pre></div>
+  
+      
+      <div class="tags">
+        <small>
+          <i class="fa fa-tags"></i>
+          linux,, apache2,, configs
+        </small>
+      </div>
+      
+      
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        function disqus_config() { this.experiment.enable_scroll_container = true; }
+        var disqus_shortname = "adambiro"; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+  
+      
+
+
+    </article>
+  </div>
+</div>
+  
+  
+  <div class="box bottom-box">
+    <div class="pagination-box">
+      
+        <span class="float-left"><a href="/linux/2017/06/28/important-linux-commands/"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;&nbsp;Previous</a></span>
+      
+      
+    </div>
+  </div>
+  
+
+  <!-- Footer -->
+  <div class="box bottom-box">
   <div class="row icon-row">
     <div class="col-xs-6 col-sm-2"><span><a href="/feed.xml" target="_blank"><i
             class="socialicons fa fa-rss-square fa-2x" aria-hidden="true"></i></a></span>
@@ -351,6 +404,7 @@
   </div>
 </div>
 
+</div>
 
             </div>
           </div>
