@@ -8,10 +8,8 @@
   <meta name="google-site-verification" content="79-C-IHyWdEnVTjg19bfVb-J8nK0K8Zj5kfkLnaHhIE" />
   <title>Apache mod_rewrite and .htaccess</title>
   <meta name="description" content="What is mod_rewrite?">
-  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <link rel="stylesheet" href="/css/new_main.css">
   <link rel="stylesheet" href="/css/gistStyle.css">
   <link rel="stylesheet" href="/css/lightbox.css">
@@ -191,7 +189,19 @@
   <script src="/js/lightbox.js"></script>
   <!-- Go to www.addthis.com/dashboard to customize your tools -->
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
-
+  <script>
+      $(function() {
+          var fonts =
+              [
+                  'https://fonts.googleapis.com/css?family=Audiowide',
+                  'https://fonts.googleapis.com/css?family=Indie+Flower'
+              ];
+          for(var i = 0; i<fonts.length; i++ ){
+              if (document.createStyleSheet) document.createStyleSheet(fonts);
+              else $("head").append($("<link rel='stylesheet' href='"+ fonts +"' type='text/css' media='screen' />"));
+          }
+      });
+  </script>
 </head>
 
 
