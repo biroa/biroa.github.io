@@ -1,2 +1,0 @@
-# Jekyll Blog
-### Custom template

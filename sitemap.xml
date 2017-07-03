@@ -36,27 +36,27 @@
 
     
     <url>
-        <loc>http://0.0.0.0:2999list-posts</loc>
+        <loc>http://www.adambiro.eu/list-posts</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:2999references</loc>
+        <loc>http://www.adambiro.eu/references</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:2999experiences</loc>
+        <loc>http://www.adambiro.eu/experiences</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:2999education</loc>
+        <loc>http://www.adambiro.eu/education</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:2999contact</loc>
+        <loc>http://www.adambiro.eu/contact</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:2999search</loc>
+        <loc>http://www.adambiro.eu/search</loc>
     </url>
     
 </urlset>
