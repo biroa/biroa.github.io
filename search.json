@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Save your eyes under Linux Server",
+    "category" : "",
+    "tags"     : "linux,, linux, server,, resolution,, command, line,, configs",
+    "url"      : "/linux/2017/07/03/save-your-eyes-under-linux-server/",
+    "date"     : "2017-07-03 00:00:00 +0200"
+    } ,
+    
+  {
     "title"    : "Apache mod_rewrite and .htaccess",
     "category" : "",
     "tags"     : "linux,, apache2,, configs",

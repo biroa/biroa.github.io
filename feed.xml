@@ -5,9 +5,82 @@
     <description>Personal Webcard</description>
     <link>http://www.adambiro.eu//</link>
     <atom:link href="http://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 02 Jul 2017 20:16:31 +0200</pubDate>
-    <lastBuildDate>Sun, 02 Jul 2017 20:16:31 +0200</lastBuildDate>
+    <pubDate>Mon, 03 Jul 2017 21:55:09 +0200</pubDate>
+    <lastBuildDate>Mon, 03 Jul 2017 21:55:09 +0200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Save your eyes under Linux Server</title>
+        <description>&lt;h4&gt;The Situation&lt;/h4&gt;
+
+&lt;p&gt;I started learning something new for a few days ago and ran into an annoying thing. I needed using VirtualBox with an Ubuntu 16.04 server. The host machine was Windows 8.1. 
+Obviously, a new server is not ready for ssh usage at first, and you need to configure the environment for yourself. Changing the font-size in a ssh-client is not a big deal, but you need to get there at first. So you will have to configure the server while you have to watch those tiny little characters. In Virtualbox, you can improve the font-size a bit with the zooming function of the software, but it will be dim because in VirtualBox the default resolution of the command line is 640x480. So you still won&amp;#39;t be happy with the results. 
+To fix this issue, I started googling for a solution, but unfortunately,  I couldn&amp;#39;t find the right one just parts. 
+Due to this, I would like to share what worked for me.&lt;/p&gt;
+
+&lt;h4&gt;Change the resolution of Linux Command Line&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reboot Ubuntu and wait for the Grub2 boot loader while you keep pressing the &amp;#39;c &amp;#39;character. When you see the Grub loader command prompt, you should type this command &lt;code&gt;videoinfo or vbeinfo&lt;/code&gt; and hit enter. You will get a list like this below. (width X height).&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/vbeinfo.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://adambiro.eu/assets/vbeinfo.png&quot; alt=&quot;vbeinfo command&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I advise you to create a screenshot like above because you will need these data in the next step of the process. There is a &lt;code&gt;videotest&lt;/code&gt; command wich you can try to use to test the given resolution. However, while &lt;a href=&quot;https://askubuntu.com/questions/54067/how-do-i-safely-change-grub2-screen-resolution&quot;&gt;this test worked for me as well&lt;/a&gt;, I could not get back to the Grub menu after!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reboot your computer and edit (sudo) the &lt;em&gt;/etc/default/grub&lt;/em&gt; file.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 4:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Uncomment the &lt;strong&gt;GRUB_GFXMODE&lt;/strong&gt; and add your selected resolution.
+          a.    This will change the resolution of the Grub Loader. It is good to have but it will not be enough. After the Grub Boot Loader, you will still get a 640X480 resolution for the command line.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Add the *&lt;em&gt;GRUB_GFX_PAYLOAD_LINUX *&lt;/em&gt;  variable below with the same resolution as above.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 6:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the top part of the file there is an empty variable &lt;strong&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/strong&gt;. You need to assign this variable with the &amp;quot;video=&lt;selected resolution hexadecimal number&gt;&amp;quot; and save it.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/grub_cmdline_linux_default.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;http://adambiro.eu/assets/grub_cmdline_linux_default.png&quot; alt=&quot;grub_cmdline_linux_default variable&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Last Step&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Run the update and reboot commands:
+&lt;code&gt;
+sudo update-grub
+sudo reboot
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;I would like to recommend a few links related to this issue.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 03 Jul 2017 00:00:00 +0200</pubDate>
+        <link>http://www.adambiro.eu//linux/2017/07/03/save-your-eyes-under-linux-server/</link>
+        <guid isPermaLink="true">http://www.adambiro.eu//linux/2017/07/03/save-your-eyes-under-linux-server/</guid>
+        
+        <category>linux,</category>
+        
+        <category>linux</category>
+        
+        <category>server,</category>
+        
+        <category>resolution,</category>
+        
+        <category>command</category>
+        
+        <category>line,</category>
+        
+        <category>configs</category>
+        
+        
+        <category>linux</category>
+        
+      </item>
     
       <item>
         <title>Apache mod_rewrite and .htaccess</title>
