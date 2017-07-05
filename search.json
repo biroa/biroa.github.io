@@ -3,7 +3,7 @@
   {
     "title"    : "Save your eyes under Linux Server",
     "category" : "",
-    "tags"     : "linux,, server,, resolution,, command-line,, configs",
+    "tags"     : "linux, server, resolution, command-line, configs",
     "url"      : "/linux/2017/07/03/save-your-eyes-under-linux-server/",
     "date"     : "2017-07-03 00:00:00 +0200"
     } ,
@@ -11,7 +11,7 @@
   {
     "title"    : "Apache mod_rewrite and .htaccess",
     "category" : "",
-    "tags"     : "linux,, apache2,, configs",
+    "tags"     : "linux, apache2, configs",
     "url"      : "/linux/2017/06/30/apache-mod-rewrite-and-htaccess/",
     "date"     : "2017-06-30 00:00:00 +0200"
     } ,
@@ -19,7 +19,7 @@
   {
     "title"    : "Important Linux commands",
     "category" : "",
-    "tags"     : "linux,, commands,, kow-how",
+    "tags"     : "linux, commands, kow-how",
     "url"      : "/linux/2017/06/28/important-linux-commands/",
     "date"     : "2017-06-28 00:00:00 +0200"
     } ,
@@ -27,7 +27,7 @@
   {
     "title"    : "Redesign the page",
     "category" : "",
-    "tags"     : "",
+    "tags"     : "redesign, website, design, webpage",
     "url"      : "/jekyll/update/2017/06/07/redesign-the-page/",
     "date"     : "2017-06-07 13:32:58 +0200"
     } ,
@@ -35,25 +35,25 @@
   {
     "title"    : "Fibonacci sequence in php recursively (part 2)",
     "category" : "",
-    "tags"     : "algorithms, fibonacci sequence, php, coding",
+    "tags"     : "algorithms fibonacci sequence php coding",
     "url"      : "/algorithms/2015/11/17/fibonacci-sequence-recusively/",
-    "date"     : "2015-11-17 10:32:00 +0000"
+    "date"     : "2015-11-17 11:32:00 +0100"
     } ,
     
   {
     "title"    : "Fibonacci sequence in php (part 1)",
     "category" : "",
-    "tags"     : "algorithms, fibonacci sequence, php, coding",
+    "tags"     : "algorithms fibonacci sequence php coding",
     "url"      : "/algorithms/2015/11/03/fibonacci-sequence/",
-    "date"     : "2015-11-03 12:00:00 +0000"
+    "date"     : "2015-11-03 13:00:00 +0100"
     } ,
     
   {
     "title"    : "Learn JIRA Software",
     "category" : "",
-    "tags"     : "jira, agile, software development",
+    "tags"     : "jira agile software-development",
     "url"      : "/jekyll/2015/10/28/meet-jira-software/",
-    "date"     : "2015-10-28 12:31:19 +0000"
+    "date"     : "2015-10-28 13:31:19 +0100"
     } ,
     
   {

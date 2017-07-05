@@ -5,8 +5,8 @@
     <description>Personal Webcard</description>
     <link>http://www.adambiro.eu//</link>
     <atom:link href="http://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 05 Jul 2017 09:59:21 +0200</pubDate>
-    <lastBuildDate>Wed, 05 Jul 2017 09:59:21 +0200</lastBuildDate>
+    <pubDate>Wed, 05 Jul 2017 10:08:11 +0200</pubDate>
+    <lastBuildDate>Wed, 05 Jul 2017 10:08:11 +0200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -63,13 +63,13 @@ sudo reboot
         <link>http://www.adambiro.eu//linux/2017/07/03/save-your-eyes-under-linux-server/</link>
         <guid isPermaLink="true">http://www.adambiro.eu//linux/2017/07/03/save-your-eyes-under-linux-server/</guid>
         
-        <category>linux,</category>
+        <category>linux</category>
         
-        <category>server,</category>
+        <category>server</category>
         
-        <category>resolution,</category>
+        <category>resolution</category>
         
-        <category>command-line,</category>
+        <category>command-line</category>
         
         <category>configs</category>
         
@@ -121,9 +121,9 @@ Mod_rewrite removes the dynamic portion of the URL (eg: index.php ... ), so it c
         <link>http://www.adambiro.eu//linux/2017/06/30/apache-mod-rewrite-and-htaccess/</link>
         <guid isPermaLink="true">http://www.adambiro.eu//linux/2017/06/30/apache-mod-rewrite-and-htaccess/</guid>
         
-        <category>linux,</category>
+        <category>linux</category>
         
-        <category>apache2,</category>
+        <category>apache2</category>
         
         <category>configs</category>
         
@@ -203,9 +203,9 @@ lsof -i:2999
         <link>http://www.adambiro.eu//linux/2017/06/28/important-linux-commands/</link>
         <guid isPermaLink="true">http://www.adambiro.eu//linux/2017/06/28/important-linux-commands/</guid>
         
-        <category>linux,</category>
+        <category>linux</category>
         
-        <category>commands,</category>
+        <category>commands</category>
         
         <category>kow-how</category>
         
@@ -241,6 +241,14 @@ lsof -i:2999
         <link>http://www.adambiro.eu//jekyll/update/2017/06/07/redesign-the-page/</link>
         <guid isPermaLink="true">http://www.adambiro.eu//jekyll/update/2017/06/07/redesign-the-page/</guid>
         
+        <category>redesign</category>
+        
+        <category>website</category>
+        
+        <category>design</category>
+        
+        <category>webpage</category>
+        
         
         <category>jekyll</category>
         
@@ -259,7 +267,7 @@ A this time I would like to present the recursive approach for the issue.&lt;/p&
         <link>http://www.adambiro.eu//algorithms/2015/11/17/fibonacci-sequence-recusively/</link>
         <guid isPermaLink="true">http://www.adambiro.eu//algorithms/2015/11/17/fibonacci-sequence-recusively/</guid>
         
-        <category>algorithms, fibonacci sequence, php, coding</category>
+        <category>algorithms fibonacci sequence php coding</category>
         
         
         <category>algorithms</category>
@@ -287,7 +295,7 @@ His &lt;em&gt;1202 book Liber Abaci&lt;/em&gt; introduced the sequence to Wester
         <link>http://www.adambiro.eu//algorithms/2015/11/03/fibonacci-sequence/</link>
         <guid isPermaLink="true">http://www.adambiro.eu//algorithms/2015/11/03/fibonacci-sequence/</guid>
         
-        <category>algorithms, fibonacci sequence, php, coding</category>
+        <category>algorithms fibonacci sequence php coding</category>
         
         
         <category>algorithms</category>
@@ -304,7 +312,7 @@ His &lt;em&gt;1202 book Liber Abaci&lt;/em&gt; introduced the sequence to Wester
         <link>http://www.adambiro.eu//jekyll/2015/10/28/meet-jira-software/</link>
         <guid isPermaLink="true">http://www.adambiro.eu//jekyll/2015/10/28/meet-jira-software/</guid>
         
-        <category>jira, agile, software development</category>
+        <category>jira agile software-development</category>
         
         
         <category>jekyll</category>
