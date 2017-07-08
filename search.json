@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Introduction to Vue.js (part 1)",
+    "category" : "",
+    "tags"     : "javascript, framework, Vue, Vue.js, programming",
+    "url"      : "/javascript/2017/07/08/introduction-to-vuejs-part-1/",
+    "date"     : "2017-07-08 00:00:00 +0200"
+    } ,
+    
+  {
     "title"    : "Save your eyes under Linux Server",
     "category" : "",
     "tags"     : "linux, server, resolution, command-line, configs",

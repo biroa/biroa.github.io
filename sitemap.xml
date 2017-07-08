@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://adambiro.eu/javascript/2017/07/08/introduction-to-vuejs-part-1/</loc>
+    </url>
+    
+    <url>
         <loc>http://adambiro.eu/linux/2017/07/03/save-your-eyes-under-linux-server/</loc>
     </url>
     
