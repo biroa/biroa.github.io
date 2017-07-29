@@ -25,7 +25,7 @@ body p{
 }
 
 .box .class404{
-    font-family: 'Indie Flower', cursive, monospace, Tahoma;
+    font-family: 'Indie Flower', cursive, "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser, Tahoma;
     display: inline;
     font-size: 4.5em;
     padding-top: 0.5em;
@@ -34,7 +34,7 @@ body p{
 }
 
 .box .class404block{
-    font-family: 'Indie Flower', cursive, monospace, Tahoma;
+    font-family: 'Indie Flower', cursive, "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser, Tahoma;
     font-size: 8.5em;
     line-height: 0.6em;
     padding: 0.5em 0 0 0.1em;
@@ -46,7 +46,7 @@ body p{
 }
 
 .box .post ul{
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
@@ -257,7 +257,7 @@ ul.info{
 }
 
 .tags small{
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 12px;
     font-style: normal;
     font-variant: normal;
@@ -367,7 +367,7 @@ ul.info{
 }
 /*Fonts settings*/
 h1 {
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 2em;
     font-style: normal;
     font-variant: normal;
@@ -378,7 +378,7 @@ h1 {
 
 .box h1 {
 
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 2em;
     font-style: normal;
     font-variant: normal;
@@ -394,7 +394,7 @@ h1 {
 }
 
 .box h4{
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 1.2em;
     font-style: normal;
     font-variant: normal;
@@ -410,7 +410,7 @@ h1 {
 }
 
 h2 {
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 1.5em;
     font-style: normal;
     font-variant: normal;
@@ -419,7 +419,7 @@ h2 {
 
 }
 h3 {
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
@@ -429,7 +429,7 @@ h3 {
 }
 
 h4 {
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 12px;
     font-style: normal;
     font-variant: normal;
@@ -439,7 +439,7 @@ h4 {
 }
 
 h5 {
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 10px;
     font-style: normal;
     font-variant: normal;
@@ -449,7 +449,7 @@ h5 {
 }
 
 p {
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
@@ -458,7 +458,7 @@ p {
 
 }
 blockquote {
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 21px;
     font-style: normal;
     font-variant: normal;
@@ -467,7 +467,7 @@ blockquote {
 
 }
 pre {
-    font-family: monospace;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
     font-size: 13px;
     font-style: normal;
     font-variant: normal;
