@@ -103,6 +103,12 @@ body p{
 
 }
 
+.box-header-image .image-position{
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+}
+
 .inner-style{
 }
 
