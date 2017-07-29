@@ -1,1 +1,1 @@
-Sitemap: http://www.adambiro.eu//sitemap.xml
+Sitemap: https://www.adambiro.eu//sitemap.xml
