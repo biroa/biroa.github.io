@@ -467,7 +467,7 @@ blockquote {
 
 }
 pre {
-    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-ser;
+    font-family: "Oxygen mono",'Helvetica Neue',Helvetica,Arial,sans-s;
     font-size: 13px;
     font-style: normal;
     font-variant: normal;
@@ -533,4 +533,8 @@ img { max-width: 100%; height: auto; }
 }
 #map {
     height: 20em;
+}
+
+code{
+    display: block!important;
 }
