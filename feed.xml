@@ -5,15 +5,15 @@
     <description>Personal Webcard</description>
     <link>http://0.0.0.0:2999/</link>
     <atom:link href="http://0.0.0.0:2999/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 30 Jul 2017 21:51:39 +0200</pubDate>
-    <lastBuildDate>Sun, 30 Jul 2017 21:51:39 +0200</lastBuildDate>
+    <pubDate>Mon, 31 Jul 2017 20:50:19 +0200</pubDate>
+    <lastBuildDate>Mon, 31 Jul 2017 20:50:19 +0200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
         <title>Introduction to Vue.js (part 2)</title>
         <description>&lt;h4&gt;Review the part 1&lt;/h4&gt;
 
-&lt;p&gt;&lt;a href=&quot;/javascript/2017/07/08/introduction-to-vuejs-part-1/&quot;&gt;In the first part&lt;/a&gt;, we faced some terminology and two small snippets of code. Those snippets were our &amp;#39;Hello World&amp;#39; example.  In this time, we will configure the environment to be able to play with Vue. &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/javascript/2017/07/08/introduction-to-vuejs-part-1/&quot;&gt;In the first part&lt;/a&gt;, we faced some terminology and two small snippets of code. Those snippets were our &amp;#39;Hello World&amp;#39; example. In this time, we will configure the environment to be able to play with VueJS and put the previous code into practice,&lt;/p&gt;
 
 &lt;h4&gt;How can we set the environment?&lt;/h4&gt;
 
@@ -87,6 +87,10 @@ var app = new Vue({
 Now if you open the &lt;em&gt;index.html&lt;/em&gt; file and pass the   property inside the &lt;em&gt;div id=app&lt;/em&gt; we will get the message result.&lt;/p&gt;
 
 &lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/hello_world.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/hello_world&quot; alt=&quot;vbeinfo command&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Summary&lt;/h4&gt;
+
+&lt;p&gt;In this part, we configured the environment and launched our example code. In the next parts, I would like to summarize the essential information to have the necessary knowledge to start working with Vue.js&lt;/p&gt;
 </description>
         <pubDate>Sat, 29 Jul 2017 00:00:00 +0200</pubDate>
         <link>http://0.0.0.0:2999/javascript/2017/07/29/introduction-to-vuejs-part-2/</link>
@@ -134,6 +138,10 @@ c.    Understand the central concepts.&lt;/p&gt;
 &lt;p&gt;Now we need to instantiate a Vue object and assign a value to the message property. &lt;/p&gt;
 
 &lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/instantiate_vue_object.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/instantiate_vue_object.png&quot; alt=&quot;vbeinfo command&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Summary&lt;/h4&gt;
+
+&lt;p&gt;Okay, in this part we haven&amp;#39;t done any big thing. We merely detailed some basic term, revealed our &lt;em&gt;Hello World code&lt;/em&gt; which we will implement&lt;a href=&quot;/javascript/2017/07/29/introduction-to-vuejs-part-2/&quot;&gt; in the next part&lt;/a&gt; of the series.&lt;/p&gt;
 </description>
         <pubDate>Sat, 08 Jul 2017 00:00:00 +0200</pubDate>
         <link>http://0.0.0.0:2999/javascript/2017/07/08/introduction-to-vuejs-part-1/</link>
