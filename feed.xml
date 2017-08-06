@@ -5,9 +5,111 @@
     <description>Personal Webcard</description>
     <link>https://www.adambiro.eu//</link>
     <atom:link href="https://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 31 Jul 2017 20:55:58 +0200</pubDate>
-    <lastBuildDate>Mon, 31 Jul 2017 20:55:58 +0200</lastBuildDate>
+    <pubDate>Sun, 06 Aug 2017 18:37:26 +0200</pubDate>
+    <lastBuildDate>Sun, 06 Aug 2017 18:37:26 +0200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Introduction to Vue.js (part 3)</title>
+        <description>&lt;h4&gt;Review the part 2&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/javascript/2017/07/29/introduction-to-vuejs-part-2/&quot;&gt;Last time we launched our &lt;em&gt;&amp;#39;Hello, World!&amp;#39;&lt;/em&gt; application.&lt;/a&gt; We used 
+&lt;em&gt;vue-cli&lt;/em&gt; for initialization and launched it with the &lt;em&gt;npm server&lt;/em&gt; which, is an inbuilt tool. &lt;/p&gt;
+
+&lt;h4&gt;Review the snippet.&lt;/h4&gt;
+
+&lt;p&gt;The constructor function we passed into the &lt;em&gt;main.js&lt;/em&gt; contained two important parts.
+The &lt;a href=&quot;/javascript/2017/07/08/introduction-to-vuejs-part-1/&quot;&gt;first one&lt;/a&gt; is the &lt;em&gt;el&lt;/em&gt; , property which refers to the HTML element where our root scope will exist. We could have used CSS selector too, but we decided to mount the Vue instance through the &lt;em&gt;id&lt;/em&gt; attribute.
+The second important part is the &lt;strong&gt;data object&lt;/strong&gt;. Data object helps Vue in the information management. So we defined a message property in the data object, and we declared the message property at the template level.
+When we started the server and Vue began compiling (This is a process with several steps, and we call it &lt;a href=&quot;https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram&quot;&gt;lifecycle hooks. You can check it here.&lt;/a&gt;), the template variable interpolated, or we can say the compiler replaced it. So the value we had assigned in the data section of the message property changed.
+This process does our work so easy because anytime we change the value the framework will re-render the output.&lt;/p&gt;
+
+&lt;h4&gt;Options&lt;/h4&gt;
+
+&lt;p&gt;In the example code, we have seen only two items from the available options. However, there are many others. In the following section, I am going to present few essential with some explanation, but the list is not full at all.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;data&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The data object for the Vue instance must be a plain object. A rule of thumb is the data should just be data - it is not recommended to observe objects with its stateful behavior. Once observed, you can no longer add reactive properties to the root data object. It is therefore advised to declare all root-level reactive properties up front, before creating the instance.&lt;/li&gt;
+&lt;li&gt;Important to note:
+
+&lt;ul&gt;
+&lt;li&gt; Vue cannot detect object property addition or deletion. Vue performs the getter/setter conversion process during instance initialization. The property must be present in the data object for Vue to convert it and make it reactive. The reason of this Object.Observe became obsolete. (&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;props&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;   A list/hash of attributes that are exposed to accept data from the parent component. It has a simple Array-based syntax and an alternative Object-based syntax that allows advanced configurations such as type checking, custom validation, and default values.&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;propsData&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unit testing purposes.&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;computed&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Computed properties are cached based on their dependencies.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;A computed property will only be re-evaluated when some of its dependencies have changed.&lt;/li&gt;
+&lt;li&gt;The purpose of the property to avoid template bloating like this.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/wrong_computed.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/wrong_computed.png&quot; alt=&quot;wrong computed property usage&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The good approach:&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/good_computed.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/good_computed.png&quot; alt=&quot;good computed property usage&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;methods&lt;/strong&gt;:
+
+&lt;ul&gt;
+&lt;li&gt; In order to avoid complex functionalities in the template level, we can call methods eg.: with the v-on event handler.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/methods_usage.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/methods_usage.png&quot; alt=&quot;methods usage&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;watch&lt;/strong&gt;:
+
+&lt;ul&gt;
+&lt;li&gt; Watching changes of an expression ( eg. in a computed function ) when Vue changes the values.
+Overusing watch is not the best approach. Sometimes it can be useful, but it is much better to use the computed property of the component. In this example below, you will see that we can get the same result with a watch, but it is closer to an imperative strategy compare to the declarative computed solution.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/watch_vs_computed.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/watch_vs_computed.png&quot; alt=&quot;watch and computed&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Template language&lt;/h4&gt;
+
+&lt;p&gt;Variables, loops, and conditions are one of the most basic building blocks of a programming language and a template language. As we have seen in the example, we inserted the message property with curly brackets inside the div which had the &lt;em&gt;#app&lt;/em&gt;  id. We used double curly brackets to warn Vue to interpolate the value of that property.&lt;/p&gt;
+
+&lt;p&gt;Vue is using a &amp;quot;Mustache&amp;quot; syntax. If you are familiar with other template languages, it is not difficult to learn it and get used to it.
+It is important to mention that Vue template language uses the Virtual DOM concept so we could write native JavaScript render function and use it directly without the template. But we will go with the template in the next part of the series. Until next time have fun with Vue guys!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Aug 2017 00:00:00 +0200</pubDate>
+        <link>https://www.adambiro.eu//javascript/2017/08/06/introduction-to-vuejs-part-3/</link>
+        <guid isPermaLink="true">https://www.adambiro.eu//javascript/2017/08/06/introduction-to-vuejs-part-3/</guid>
+        
+        <category>javascript</category>
+        
+        <category>framework</category>
+        
+        <category>Vue</category>
+        
+        <category>Vue.js</category>
+        
+        <category>programming</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Introduction to Vue.js (part 2)</title>
@@ -55,7 +157,7 @@ vue init webpack-simple [folder_name]
 &lt;li&gt;The running  the command will finish when it asks you to type the Project Name. &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/run_webpack_simple.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/run_webpack_simple.png&quot; alt=&quot;vbeinfo command&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/run_webpack_simple.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/run_webpack_simple.png&quot; alt=&quot;run webpack&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;You can leave it blank, but then the name of the project will be the same as the name of the folder.  Anyway, it is pretty straightforward. You will have to answer some extra questions which I leave with you with the screenshot above.&lt;/p&gt;
 
@@ -71,7 +173,7 @@ npm run dev
 &lt;/code&gt;
 This command will run the NPM development server, and it will open your default browser with the initialized application under localhost:8080.&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/default_vue_application.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/default_vue_application.png&quot; alt=&quot;vbeinfo command&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/default_vue_application.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/default_vue_application.png&quot; alt=&quot;default vue application&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Now, if you open your project folder, you will see two directories (folders) src, node_modules. The best way to learn how Vue works, if we start from scratch. So let&amp;#39;s delete the entire src folder and recreate our empty one. Now let&amp;#39;s create a new main.js file in the src folder and insert the first snippet from the &lt;a href=&quot;/javascript/2017/07/08/introduction-to-vuejs-part-1/&quot;&gt;previous part of the series&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;import Vue from 'vue'
@@ -86,7 +188,7 @@ var app = new Vue({
 &lt;p&gt;As you can see, there is one extra line, and that is the first one. The reason of that we need to import the Vue object source to create a new instance with the &lt;em&gt;new&lt;/em&gt; keyword.
 Now if you open the &lt;em&gt;index.html&lt;/em&gt; file and pass the   property inside the &lt;em&gt;div id=app&lt;/em&gt; we will get the message result.&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/hello_world.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/hello_world&quot; alt=&quot;vbeinfo command&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/hello_world.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/hello_world.png&quot; alt=&quot;Hello World app&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;Summary&lt;/h4&gt;
 
@@ -478,21 +580,6 @@ His &lt;em&gt;1202 book Liber Abaci&lt;/em&gt; introduced the sequence to Wester
         <guid isPermaLink="true">https://www.adambiro.eu//jekyll/2015/10/28/meet-jira-software/</guid>
         
         <category>jira agile software-development</category>
-        
-        
-        <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>The Site has launched</title>
-        <description>&lt;p&gt;Welcome dear alien. You will be an alien for me. The only information I can know about you is your IP address and the country you are from and some other detail that is provided by Google Analytics. You will find here my notes and links and other information which help keeping me up-to-date. Feel free to read, share or use, if you think it is useful for you too. I like building critique and advice so fell free to add a comment too. I wish you pleasant reading and learning.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 27 Oct 2015 13:31:19 +0100</pubDate>
-        <link>https://www.adambiro.eu//jekyll/2015/10/27/site-has-launched/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//jekyll/2015/10/27/site-has-launched/</guid>
-        
-        <category>other</category>
         
         
         <category>jekyll</category>
