@@ -5,9 +5,131 @@
     <description>Personal Webcard</description>
     <link>https://www.adambiro.eu//</link>
     <atom:link href="https://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 06 Aug 2017 21:42:34 +0200</pubDate>
-    <lastBuildDate>Sun, 06 Aug 2017 21:42:34 +0200</lastBuildDate>
+    <pubDate>Sun, 20 Aug 2017 20:07:03 +0200</pubDate>
+    <lastBuildDate>Sun, 20 Aug 2017 20:07:03 +0200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Introduction to Vue.js (part 4)</title>
+        <description>&lt;h4&gt;Review the part 3&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;/javascript/2017/08/06/introduction-to-vuejs-part-3/&quot;&gt;Last time we became familiar with the most relevant options of Vue object.&lt;/a&gt;  We have seen some example as well, and as I mentioned last time, now I would like to introduce the template part of the Vue Framework.&lt;/p&gt;
+
+&lt;h4&gt;We will talk about these topics&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/08/19/introduction-to-vuejs-part-4/#interpolation&quot;&gt;Interpolation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/08/19/introduction-to-vuejs-part-4/#directives&quot;&gt;Directives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/08/19/introduction-to-vuejs-part-4/#filters&quot;&gt;Filters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/08/19/introduction-to-vuejs-part-4/#conditions&quot;&gt;Conditions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/08/19/introduction-to-vuejs-part-4/#loops&quot;&gt;Loops&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id=&quot;interpolation&quot;&gt;&lt;/div&gt;
+
+&lt;h4&gt;Interpolation&lt;/h4&gt;
+
+&lt;p&gt;Interpolation is a term for exchanging a property to its assigned value or evaluate an expression or returning the result of a function etc.. For example, when Vue recognize a curly bracket in the template during the compilation phase, the modification is going to happen. Interpolation doesn&amp;#39;t depend on curly brackets. 
+In the following example, we changed the curly brackets to a v-once attribute and the output will be the same.  You could say what a magic! But in reality, it is just a directive.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;&amp;lt;span&amp;gt;Message:  {{ msg }}  &amp;lt;/span&amp;gt;
+&amp;lt;span v-once&amp;gt;This will never change:  {{ msg }} &amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div id=&quot;directives&quot;&gt;&lt;/div&gt;
+
+&lt;h4&gt;What is a directive?&lt;/h4&gt;
+
+&lt;p&gt;Well, it is an essential building block of Vue.js. It is an attribute with a value what we declare on a starting tag of an HTML element. It has a full notation 
+which is &amp;#39;v-&amp;#39;  and a shorter one which is the  : . The official term for the latter one is shorthand notation anyway.  The other important thing we need to note is the notation of the events. VueJS similarly to the native JavaScript contains events. We can invoke them, ( eg. &amp;#39;v-on:click&amp;#39; ). The shorthand version of this is the (@click).&lt;/p&gt;
+
+&lt;p&gt;The essential information about directives:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;they have regular  v-  type, &lt;/li&gt;
+&lt;li&gt;they have event  v-on:[eventname]  type&lt;/li&gt;
+&lt;li&gt;they have modifier type&lt;/li&gt;
+&lt;li&gt;and they have full and shorthand notation   v- = :   v-on =  @ &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id=&quot;filters&quot;&gt;&lt;/div&gt;
+
+&lt;h4&gt;Filters&lt;/h4&gt;
+
+&lt;p&gt;Filters are useful when we need to filter or modify the output. We can use them in the curly brackets like this  {{ message | capitalize }}  and in the v-bind directive to change the result like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;&amp;lt;div v-bind:id=&quot;rawId | formatId&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div id=&quot;conditions&quot;&gt;&lt;/div&gt;
+
+&lt;h4&gt;Conditions&lt;/h4&gt;
+
+&lt;p&gt;Our main.js contains the following code:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;// content of main.js
+import Vue from 'vue'
+
+var app = new Vue({
+  el: '#app',
+  data: {
+   valid:true,
+     fruit:&quot;apple&quot; 
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;V-IF&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;&amp;lt;div id=&quot;app&quot;&amp;gt;
+   &amp;lt;div v-if=valid&amp;gt;Valid&amp;lt;/div&amp;gt; 
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;V-ELSE&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;&amp;lt;div id=&quot;app&quot;&amp;gt;
+   &amp;lt;div v-if=valid&amp;gt;Valid&amp;lt;/div&amp;gt; 
+   &amp;lt;div v-else&amp;gt;Not Valid&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;V-ELSE-IF&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;&amp;lt;div id=&quot;app&quot;&amp;gt;
+   &amp;lt;div&amp;gt;
+      &amp;lt;div v-if=&quot;fruit=='apple'&quot;&amp;gt;apple&amp;lt;/div&amp;gt;
+      &amp;lt;div v-else-if=&quot;fruit=='orange'&quot;&amp;gt;orange&amp;lt;/div&amp;gt;
+      &amp;lt;div v-else&amp;gt;rest&amp;lt;/div&amp;gt;
+   &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;V-SHOW&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;&amp;lt;div id=&quot;app&quot;&amp;gt;
+   &amp;lt;div v-show=valid&amp;gt;visible&amp;lt;/div&amp;gt; 
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;V-IF&lt;/strong&gt; vs &lt;strong&gt;V-SHOW&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The difference between &lt;em&gt;v-if&lt;/em&gt; and &lt;em&gt;v-for&lt;/em&gt;  is the working mechanism. The first one doesn&amp;#39;t generate the HTML code into the DOM if the evaluated expression is false or we are in the false branch of a condition. But &lt;em&gt;v-show&lt;/em&gt; does. So the DOM will contain the true and the false scenarios but only the true side will be visible for the user in the output. It is like a css based hiding.&lt;/p&gt;
+
+&lt;div id=&quot;loops&quot;&gt;&lt;/div&gt;
+
+&lt;h4&gt;Loops&lt;/h4&gt;
+
+&lt;p&gt;Loops are good if you like to go through a list of something. Something refers to different composite data types here.  A template of Vue can only have one type of loop, and that is the v-for loop. We can use for loops in different contexts. VueJS documentation about the for loops contextual usage is quite clear &lt;a href=&quot;https://vuejs.org/v2/guide/list.html#v-for&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4&gt;What is coming next?&lt;/h4&gt;
+
+&lt;p&gt;Next time, I am going to implement a sample application which is going to cover the knowledge what we have learned in the last couple of parts in this series.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 19 Aug 2017 00:00:00 +0200</pubDate>
+        <link>https://www.adambiro.eu//javascript/2017/08/19/introduction-to-vuejs-part-4/</link>
+        <guid isPermaLink="true">https://www.adambiro.eu//javascript/2017/08/19/introduction-to-vuejs-part-4/</guid>
+        
+        <category>javascript</category>
+        
+        <category>framework</category>
+        
+        <category>Vue</category>
+        
+        <category>Vue.js</category>
+        
+        <category>programming</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Introduction to Vue.js (part 3)</title>
@@ -217,11 +339,11 @@ Now if you open the &lt;em&gt;index.html&lt;/em&gt; file and pass the   property
         <title>Introduction to Vue.js (part 1)</title>
         <description>&lt;h4&gt;What is Vue.js?&lt;/h4&gt;
 
-&lt;p&gt;Vue (pronounce /VJ/) is a progressive framework for building user interfaces. It is implemented for building client-side applications. By default, Vue components produce and manipulate DOM in the browser as output. However, it is possible to render the same output into HTML strings on the server, send them directly to the browser, and finally &amp;quot;hydrate&amp;quot; the static markup into a fully interactive app on the client. But this draft of notes will not include the server-side functionalities of Vue. The features of that part are available here.( &lt;a href=&quot;https://ssr.vuejs.org/en/&quot;&gt;https://ssr.vuejs.org/en/&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Vue (pronounce /VJU/) is a progressive framework for building user interfaces. It is implemented for building client-side applications. By default, Vue components produce and manipulate DOM in the browser as output. However, it is possible to render the same output into HTML strings on the server, send them directly to the browser, and finally &amp;quot;hydrate&amp;quot; the static markup into a fully interactive app on the client. But this draft of notes will not include the server-side functionalities of Vue. The features of that part are available here.( &lt;a href=&quot;https://ssr.vuejs.org/en/&quot;&gt;https://ssr.vuejs.org/en/&lt;/a&gt;)&lt;/p&gt;
 
 &lt;h4&gt;What is the declarative rendering?&lt;/h4&gt;
 
-&lt;p&gt;To have a grasp of declarative rendering let&amp;#39;s focus on the difference between the declarative and imperative conceptions. Let&amp;#39;s see an example what the main difference between these terminologies in programming point of view is.
+&lt;p&gt;To have a grasp of declarative rendering let&amp;#39;s focus on the difference between the declarative and imperative conceptions. Let&amp;#39;s see an example what are the main differences between these terminologies in programming point of view.
 Declarative: In a  declarative programming language you will have to say what you want. So the proper question in a declarative world would be: &amp;quot;What would you like to achieve?&amp;quot;
 The proper answer    I would like to be a Vue master.&lt;br&gt;
 Imperative:   In an imperative language you will have to say how to get what you want. So the proper question would be: &amp;quot;How would you like to achieve?&amp;quot;
@@ -562,23 +684,6 @@ His &lt;em&gt;1202 book Liber Abaci&lt;/em&gt; introduced the sequence to Wester
         
         
         <category>algorithms</category>
-        
-      </item>
-    
-      <item>
-        <title>Learn JIRA Software</title>
-        <description>&lt;p&gt;&lt;span class=&quot;video&quot;&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;350&quot; align=&quot;center&quot; src=&quot;http://www.youtube.com/embed/6copRZF07Mk&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;span&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 28 Oct 2015 13:31:19 +0100</pubDate>
-        <link>https://www.adambiro.eu//jekyll/2015/10/28/meet-jira-software/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//jekyll/2015/10/28/meet-jira-software/</guid>
-        
-        <category>jira agile software-development</category>
-        
-        
-        <category>jekyll</category>
         
       </item>
     

@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>https://adambiro.eu/javascript/2017/08/19/introduction-to-vuejs-part-4/</loc>
+    </url>
+    
+    <url>
         <loc>https://adambiro.eu/javascript/2017/08/06/introduction-to-vuejs-part-3/</loc>
     </url>
     
