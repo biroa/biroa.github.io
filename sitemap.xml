@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>https://adambiro.eu/javascript/2017/09/10/implement-a-web-page-with-vuejs-part-1/</loc>
+    </url>
+    
+    <url>
         <loc>https://adambiro.eu/javascript/2017/08/19/introduction-to-vuejs-part-4/</loc>
     </url>
     
@@ -52,27 +56,27 @@
 
     
     <url>
-        <loc>https://www.adambiro.eu/list-posts</loc>
+        <loc>http://0.0.0.0:2999list-posts</loc>
     </url>
     
     <url>
-        <loc>https://www.adambiro.eu/references</loc>
+        <loc>http://0.0.0.0:2999references</loc>
     </url>
     
     <url>
-        <loc>https://www.adambiro.eu/experiences</loc>
+        <loc>http://0.0.0.0:2999experiences</loc>
     </url>
     
     <url>
-        <loc>https://www.adambiro.eu/education</loc>
+        <loc>http://0.0.0.0:2999education</loc>
     </url>
     
     <url>
-        <loc>https://www.adambiro.eu/contact</loc>
+        <loc>http://0.0.0.0:2999contact</loc>
     </url>
     
     <url>
-        <loc>https://www.adambiro.eu/search</loc>
+        <loc>http://0.0.0.0:2999search</loc>
     </url>
     
 </urlset>

@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Implement a web page with Vue.js (part 1)",
+    "category" : "",
+    "tags"     : "javascript, framework, Vue, Vue.js, programming",
+    "url"      : "/javascript/2017/09/10/implement-a-web-page-with-vuejs-part-1/",
+    "date"     : "2017-09-10 00:00:00 +0200"
+    } ,
+    
+  {
     "title"    : "Introduction to Vue.js (part 4)",
     "category" : "",
     "tags"     : "javascript, framework, Vue, Vue.js, programming",

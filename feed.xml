@@ -3,11 +3,219 @@
   <channel>
     <title>adambiro.eu</title>
     <description>Personal Webcard</description>
-    <link>https://www.adambiro.eu//</link>
-    <atom:link href="https://www.adambiro.eu//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 20 Aug 2017 20:15:05 +0200</pubDate>
-    <lastBuildDate>Sun, 20 Aug 2017 20:15:05 +0200</lastBuildDate>
+    <link>http://0.0.0.0:2999/</link>
+    <atom:link href="http://0.0.0.0:2999/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 14 Oct 2017 16:06:44 +0200</pubDate>
+    <lastBuildDate>Sat, 14 Oct 2017 16:06:44 +0200</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Implement a web page with Vue.js (part 1)</title>
+        <description>&lt;h4&gt;Vue application&lt;/h4&gt;
+
+&lt;p&gt;A few weeks ago, we completed the introduction part of Vue basics. &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/07/08/introduction-to-vuejs-part-1/&quot;&gt;Introduction to Vue.js (part 1)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/07/29/introduction-to-vuejs-part-2/&quot;&gt;Introduction to Vue.js (part 2)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/08/06/introduction-to-vuejs-part-3/&quot;&gt;Introduction to Vue.js (part 3)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/javascript/2017/08/19/introduction-to-vuejs-part-4/&quot;&gt;Introduction to Vue.js (part 4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As I promised, we would implement a basic Vue application. Our work will be a one-page app. In the first step, we are going to use the Vue-Router and lay down the structure of the application. Later, we will add some CSS style, to design the interface of the app and grab API data - with &lt;a href=&quot;https://alligator.io/vuejs/rest-api-axios/&quot;&gt;Axios&lt;/a&gt; - and load it to our website. But today we will only implement the bare-bone structure of the web page.&lt;/p&gt;
+
+&lt;h4&gt;The configuration of my environment:&lt;/h4&gt;
+
+&lt;p&gt;The app we are going to make should be cross-platform compatible, but I would like to list the settings of my environment because sometimes there can be small differences in the installation process.
+The following list can be helpful as an indicator.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NODE v6.10.2&lt;/li&gt;
+&lt;li&gt;NPM 5.4.1&lt;/li&gt;
+&lt;li&gt;Windows 8.1 Pro&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Initialize the Application:&lt;/h4&gt;
+
+&lt;p&gt;So let&amp;#39;s start with &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;vue init webpack [folder_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We could use the  &lt;em&gt;webpack-simple&lt;/em&gt; command too, but we need the &lt;em&gt;vue-router&lt;/em&gt; plugin which is not in the options of the installation process if we are using the simple format of the &lt;em&gt;webpack&lt;/em&gt; command. ( In the latter case, we need to install it separately). &lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/opa_init_webpack.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/opa_init_webpack.png&quot; alt=&quot;list of available options using webpack instead of webpack-simple&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We already have the &lt;em&gt;npm&lt;/em&gt; and &lt;em&gt;vue-cli&lt;/em&gt; on our operating system if you followed the introduction parts of Vue.js series.
+Now, you should go into the folder which you created previously with the &lt;em&gt;webpack&lt;/em&gt; command and run the:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;npm install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If the installation is over, you can execute the dev server command which is:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;npm run dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;The structure of the initialized app:&lt;/h4&gt;
+
+&lt;p&gt;Okay! Now we have everything that we need and you have the folder structure like this below.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/folderstructure_of_the_int.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/folderstructure_of_the_int.png&quot; alt=&quot;list of the folders and files after initialization&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Right now we won&amp;#39;t start with the deletion of the &lt;em&gt;src&lt;/em&gt; folder as we did earlier in the introduction notes. Instead, we only change the files which need some alteration. So let&amp;#39;s open the &lt;em&gt;/src/router/index.js&lt;/em&gt; file and paste the following code. As you can see on the top, we have three components import. Home, About, Contact. These will be our pages. Lower in the Router section we added a &lt;em&gt;mode: history&lt;/em&gt; line. It will help to avoid using the hash mark in the urls.  Below that line, we set the name of the components and the path where we will be able to access them in the browser.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from '@/components/Home'
+import About from '@/components/About'
+import Contact from '@/components/Contact'
+
+Vue.use(Router)
+
+export default new Router({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
+    }
+  ]
+})
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let&amp;#39;s rename the default &lt;em&gt;Hello.vue&lt;/em&gt; file to &lt;em&gt;Home.vue&lt;/em&gt; and paste the following code into that file. After this, you should create two extra files for the About and Contact pages. (Right now we are using the default CSS in the codes.) See the codes below.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Home.vue&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;
+&amp;lt;template&amp;gt;
+  &amp;lt;div class=&quot;home&quot;&amp;gt;
+    &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;script&amp;gt;
+export default {
+  name: 'Home',
+  data () {
+    return {
+      msg: 'Welcome to Your Home page of Vue.js App'
+    }
+  }
+}
+&amp;lt;/script&amp;gt;
+
+&amp;lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&amp;gt;
+&amp;lt;style scoped&amp;gt;
+h1, h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
+}
+&amp;lt;/style&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;About.vue&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;
+&amp;lt;template&amp;gt;
+    &amp;lt;div class=&quot;about&quot;&amp;gt;
+        &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;script&amp;gt;
+  export default {
+    name: 'About',
+    data () {
+      return {
+        msg: 'Welcome to Your About page of Vue.js App'
+      }
+    }
+  }
+&amp;lt;/script&amp;gt;
+
+&amp;lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&amp;gt;
+&amp;lt;style scoped&amp;gt;
+// Styie is the same as above
+&amp;lt;/style&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Contact.vue&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;
+&amp;lt;template&amp;gt;
+    &amp;lt;div class=&quot;contact&quot;&amp;gt;
+        &amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;script&amp;gt;
+  export default {
+    name: 'Contact',
+    data () {
+      return {
+        msg: 'Welcome to Your Contact page of Vue.js App'
+      }
+    }
+  }
+&amp;lt;/script&amp;gt;
+
+&amp;lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&amp;gt;
+&amp;lt;style scoped&amp;gt;
+// Styie is the same as above
+&amp;lt;/style&amp;gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Right now you still can&amp;#39;t see anything. Just the logo without the default links. To have something visible we need to change a few lines in the App.vue.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/half_ready_app.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/half_ready_app.png&quot; alt=&quot;partly ready base app without no sign&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So let&amp;#39;s open the &lt;em&gt;App.vue&lt;/em&gt; file and replace the image tag with the following lines:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;    &amp;lt;router-link v-bind:to=&quot;'/'&quot;&amp;gt;Home&amp;lt;/router-link&amp;gt;
+    &amp;lt;router-link v-bind:to=&quot;'/about'&quot;&amp;gt;About&amp;lt;/router-link&amp;gt;
+    &amp;lt;router-link v-bind:to=&quot;'/contact'&quot;&amp;gt;Contact&amp;lt;/router-link&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Whoala!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;http://adambiro.eu/assets/working_base_app_navigation.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/working_base_app_navigation.png&quot; alt=&quot;app_navigation is done&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Sep 2017 00:00:00 +0200</pubDate>
+        <link>http://0.0.0.0:2999/javascript/2017/09/10/implement-a-web-page-with-vuejs-part-1/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/javascript/2017/09/10/implement-a-web-page-with-vuejs-part-1/</guid>
+        
+        <category>javascript</category>
+        
+        <category>framework</category>
+        
+        <category>Vue</category>
+        
+        <category>Vue.js</category>
+        
+        <category>programming</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Introduction to Vue.js (part 4)</title>
@@ -113,8 +321,8 @@ var app = new Vue({
 &lt;p&gt;Next time, I am going to implement a sample application which is going to cover the knowledge what we have learned in the last couple of parts in this series.&lt;/p&gt;
 </description>
         <pubDate>Sat, 19 Aug 2017 00:00:00 +0200</pubDate>
-        <link>https://www.adambiro.eu//javascript/2017/08/19/introduction-to-vuejs-part-4/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//javascript/2017/08/19/introduction-to-vuejs-part-4/</guid>
+        <link>http://0.0.0.0:2999/javascript/2017/08/19/introduction-to-vuejs-part-4/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/javascript/2017/08/19/introduction-to-vuejs-part-4/</guid>
         
         <category>javascript</category>
         
@@ -215,8 +423,8 @@ Overusing watch is not the best approach. Sometimes it can be useful, but it is 
 It is important to mention that Vue template language uses the Virtual DOM concept so we could write native JavaScript render function and use it directly without the template. But we will go with the template in the next part of the series. Until next time have fun with Vue guys!&lt;/p&gt;
 </description>
         <pubDate>Sun, 06 Aug 2017 00:00:00 +0200</pubDate>
-        <link>https://www.adambiro.eu//javascript/2017/08/06/introduction-to-vuejs-part-3/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//javascript/2017/08/06/introduction-to-vuejs-part-3/</guid>
+        <link>http://0.0.0.0:2999/javascript/2017/08/06/introduction-to-vuejs-part-3/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/javascript/2017/08/06/introduction-to-vuejs-part-3/</guid>
         
         <category>javascript</category>
         
@@ -317,8 +525,8 @@ Now if you open the &lt;em&gt;index.html&lt;/em&gt; file and pass the   property
 &lt;p&gt;In this part, we configured the environment and launched our example code. In the next parts, I would like to summarize the essential information to have the necessary knowledge to start working with Vue.js&lt;/p&gt;
 </description>
         <pubDate>Sat, 29 Jul 2017 00:00:00 +0200</pubDate>
-        <link>https://www.adambiro.eu//javascript/2017/07/29/introduction-to-vuejs-part-2/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//javascript/2017/07/29/introduction-to-vuejs-part-2/</guid>
+        <link>http://0.0.0.0:2999/javascript/2017/07/29/introduction-to-vuejs-part-2/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/javascript/2017/07/29/introduction-to-vuejs-part-2/</guid>
         
         <category>javascript</category>
         
@@ -364,8 +572,8 @@ c.    Understand the central concepts.&lt;/p&gt;
 &lt;p&gt;&lt;a class=&quot;example-image-link&quot; href=&quot;/assets/instantiate_vue_object.png&quot; data-lightbox=&quot;example-set&quot; data-title=&quot;Or press the right arrow on your keyboard.&quot;&gt;&lt;img class=&quot;example-image&quot; src=&quot;/assets/instantiate_vue_object.png&quot; alt=&quot;vbeinfo command&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 08 Jul 2017 00:00:00 +0200</pubDate>
-        <link>https://www.adambiro.eu//javascript/2017/07/08/introduction-to-vuejs-part-1/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//javascript/2017/07/08/introduction-to-vuejs-part-1/</guid>
+        <link>http://0.0.0.0:2999/javascript/2017/07/08/introduction-to-vuejs-part-1/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/javascript/2017/07/08/introduction-to-vuejs-part-1/</guid>
         
         <category>javascript</category>
         
@@ -445,8 +653,8 @@ sudo reboot
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 03 Jul 2017 00:00:00 +0200</pubDate>
-        <link>https://www.adambiro.eu//linux/2017/07/03/save-your-eyes-under-linux-server/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//linux/2017/07/03/save-your-eyes-under-linux-server/</guid>
+        <link>http://0.0.0.0:2999/linux/2017/07/03/save-your-eyes-under-linux-server/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/linux/2017/07/03/save-your-eyes-under-linux-server/</guid>
         
         <category>linux</category>
         
@@ -503,8 +711,8 @@ Mod_rewrite removes the dynamic portion of the URL (eg: index.php ... ), so it c
 &amp;lt;/IfModule&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         <pubDate>Fri, 30 Jun 2017 00:00:00 +0200</pubDate>
-        <link>https://www.adambiro.eu//linux/2017/06/30/apache-mod-rewrite-and-htaccess/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//linux/2017/06/30/apache-mod-rewrite-and-htaccess/</guid>
+        <link>http://0.0.0.0:2999/linux/2017/06/30/apache-mod-rewrite-and-htaccess/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/linux/2017/06/30/apache-mod-rewrite-and-htaccess/</guid>
         
         <category>linux</category>
         
@@ -585,8 +793,8 @@ eg:
 lsof -i:2999
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         <pubDate>Wed, 28 Jun 2017 00:00:00 +0200</pubDate>
-        <link>https://www.adambiro.eu//linux/2017/06/28/important-linux-commands/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//linux/2017/06/28/important-linux-commands/</guid>
+        <link>http://0.0.0.0:2999/linux/2017/06/28/important-linux-commands/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/linux/2017/06/28/important-linux-commands/</guid>
         
         <category>linux</category>
         
@@ -623,8 +831,8 @@ lsof -i:2999
 &lt;/div&gt;
 </description>
         <pubDate>Wed, 07 Jun 2017 13:32:58 +0200</pubDate>
-        <link>https://www.adambiro.eu//jekyll/update/2017/06/07/redesign-the-page/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//jekyll/update/2017/06/07/redesign-the-page/</guid>
+        <link>http://0.0.0.0:2999/jekyll/update/2017/06/07/redesign-the-page/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/jekyll/update/2017/06/07/redesign-the-page/</guid>
         
         <category>redesign</category>
         
@@ -649,36 +857,8 @@ A this time I would like to present the recursive approach for the issue.&lt;/p&
 &lt;div id=&quot;gist28110535&quot; class=&quot;gist&quot;&gt;    &lt;div class=&quot;gist-file&quot;&gt;      &lt;div class=&quot;gist-data&quot;&gt;        &lt;div class=&quot;js-gist-file-update-container js-task-list-container file-box&quot;&gt;  &lt;div id=&quot;file-fibonaccirecursive-php&quot; class=&quot;file&quot;&gt;      &lt;div itemprop=&quot;text&quot; class=&quot;blob-wrapper data type-php&quot;&gt;      &lt;table class=&quot;highlight tab-size js-file-line-container&quot; data-tab-size=&quot;8&quot;&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L1&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;1&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-pse&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * Created by PhpStorm.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * User: biroa&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * Date: 10/2/2015&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * Time: 7:46 AM&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; &lt;span class=&quot;pl-c&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * &lt;span class=&quot;pl-k&quot;&gt;@param&lt;/span&gt; $n&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; *&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * &lt;span class=&quot;pl-k&quot;&gt;@return&lt;/span&gt; int&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; &lt;span class=&quot;pl-c&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;fibonacciRecursive&lt;/span&gt;(&lt;span class=&quot;pl-smi&quot;&gt;$n&lt;/span&gt;)&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;{&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-k&quot;&gt;if&lt;/span&gt; ( &lt;span class=&quot;pl-smi&quot;&gt;$n&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;0&lt;/span&gt; ) {&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;        &lt;span class=&quot;pl-k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    } &lt;span class=&quot;pl-k&quot;&gt;elseif&lt;/span&gt; ( &lt;span class=&quot;pl-smi&quot;&gt;$n&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;1&lt;/span&gt; ) {&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;        &lt;span class=&quot;pl-k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    } &lt;span class=&quot;pl-k&quot;&gt;else&lt;/span&gt; {&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;        &lt;span class=&quot;pl-k&quot;&gt;return&lt;/span&gt; (fibonacciRecursive(&lt;span class=&quot;pl-smi&quot;&gt;$n&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;pl-k&quot;&gt;+&lt;/span&gt; fibonacciRecursive(&lt;span class=&quot;pl-smi&quot;&gt;$n&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;2&lt;/span&gt;));&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    }&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;}&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * &lt;span class=&quot;pl-k&quot;&gt;@param&lt;/span&gt; $n&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; *&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * &lt;span class=&quot;pl-k&quot;&gt;@return&lt;/span&gt; int&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; &lt;span class=&quot;pl-c&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;caller&lt;/span&gt;(&lt;span class=&quot;pl-smi&quot;&gt;$number&lt;/span&gt;)&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;{&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L30&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;30&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC30&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-c1&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&amp;quot;&lt;/span&gt;Fibonacci series recursive: &lt;span class=&quot;pl-pds&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L31&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;31&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC31&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-k&quot;&gt;for&lt;/span&gt; ( &lt;span class=&quot;pl-smi&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;0&lt;/span&gt;; &lt;span class=&quot;pl-smi&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$number&lt;/span&gt;; &lt;span class=&quot;pl-smi&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;++&lt;/span&gt; ) {&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L32&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;32&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC32&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;        &lt;span class=&quot;pl-c1&quot;&gt;echo&lt;/span&gt; fibonacciRecursive(&lt;span class=&quot;pl-smi&quot;&gt;$i&lt;/span&gt;) &lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;pl-pds&quot;&gt;&amp;#39;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L33&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;33&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC33&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    }&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L34&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;34&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC34&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-c1&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&amp;quot;&lt;/span&gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&lt;span class=&quot;pl-pds&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L35&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;35&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC35&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;}&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-L36&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;36&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonaccirecursive-php-LC36&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;caller(&lt;span class=&quot;pl-c1&quot;&gt;10&lt;/span&gt;);&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;/table&gt;  &lt;/div&gt;  &lt;/div&gt;  &lt;/div&gt;      &lt;/div&gt;      &lt;div class=&quot;gist-meta&quot;&gt;        &lt;a href=&quot;https://gist.github.com/biroa/04f4d4b48c21a2447bff/raw/45e6fd0d043f45b99c66e08a61a2664dd46046c9/fibonacciRecursive.php&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt;        &lt;a href=&quot;https://gist.github.com/biroa/04f4d4b48c21a2447bff#file-fibonaccirecursive-php&quot;&gt;fibonacciRecursive.php&lt;/a&gt;        hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;      &lt;/div&gt;    &lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Tue, 17 Nov 2015 11:32:00 +0100</pubDate>
-        <link>https://www.adambiro.eu//algorithms/2015/11/17/fibonacci-sequence-recusively/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//algorithms/2015/11/17/fibonacci-sequence-recusively/</guid>
-        
-        <category>algorithms fibonacci sequence php coding</category>
-        
-        
-        <category>algorithms</category>
-        
-      </item>
-    
-      <item>
-        <title>Fibonacci sequence in php (part 1)</title>
-        <description>&lt;p&gt;The &lt;strong&gt;Fibonacci&lt;/strong&gt; sequence is named after Italian mathematician &lt;a href=&quot;https://en.wikipedia.org/wiki/Fibonacci_number&quot; title=&quot;Fibonacci&quot;&gt;Fibonacci&lt;/a&gt;. 
-His &lt;em&gt;1202 book Liber Abaci&lt;/em&gt; introduced the sequence to Western European mathematics, although the sequence had been described earlier in Indian mathematics.&lt;/p&gt;
-
-&lt;p&gt;The Fibonacci numbers or sequence is: 0,1,1,2,3,5,8,13,21,34,55,89,144…&lt;/p&gt;
-
-&lt;p&gt;Each number is the sum of the previous two numbers. In mathematical terms: &lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fn=Fn−1+Fn−2 where F0=0,F1=1&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Fibonacci numbers can be computed in several different ways. The following solution calculates each fibonacci number in sequence:&lt;/p&gt;
-
-&lt;div id=&quot;gist27707534&quot; class=&quot;gist&quot;&gt;    &lt;div class=&quot;gist-file&quot;&gt;      &lt;div class=&quot;gist-data&quot;&gt;        &lt;div class=&quot;js-gist-file-update-container js-task-list-container file-box&quot;&gt;  &lt;div id=&quot;file-fibonacci-php&quot; class=&quot;file&quot;&gt;      &lt;div itemprop=&quot;text&quot; class=&quot;blob-wrapper data type-php&quot;&gt;      &lt;table class=&quot;highlight tab-size js-file-line-container&quot; data-tab-size=&quot;8&quot;&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L1&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;1&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-pse&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * Created by PhpStorm.&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * User: adam biro&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * Date: 10/1/2015&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * Time: 7:53 PM&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; &lt;span class=&quot;pl-c&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; * &lt;span class=&quot;pl-k&quot;&gt;@param&lt;/span&gt; $n&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt; &lt;span class=&quot;pl-c&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;&lt;span class=&quot;pl-k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;fibonacci&lt;/span&gt;(&lt;span class=&quot;pl-smi&quot;&gt;$n&lt;/span&gt;)&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;{&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-smi&quot;&gt;$first&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-smi&quot;&gt;$second&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-c1&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&amp;quot;&lt;/span&gt;Fibonacci series &lt;span class=&quot;pl-pds&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-c1&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$first&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;pl-pds&quot;&gt;&amp;#39;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$second&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;pl-pds&quot;&gt;&amp;#39;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    &lt;span class=&quot;pl-k&quot;&gt;for&lt;/span&gt; ( &lt;span class=&quot;pl-smi&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;2&lt;/span&gt;; &lt;span class=&quot;pl-smi&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$n&lt;/span&gt;; &lt;span class=&quot;pl-smi&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;++&lt;/span&gt; ) {&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;        &lt;span class=&quot;pl-smi&quot;&gt;$third&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$first&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$second&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;        &lt;span class=&quot;pl-c1&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$third&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;pl-pds&quot;&gt;&amp;#39;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;        &lt;span class=&quot;pl-smi&quot;&gt;$first&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$second&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;        &lt;span class=&quot;pl-smi&quot;&gt;$second&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;$third&lt;/span&gt;;&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;    }&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;}&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;      &lt;tr&gt;        &lt;td id=&quot;file-fibonacci-php-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;&lt;/td&gt;        &lt;td id=&quot;file-fibonacci-php-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;&lt;span class=&quot;pl-s1&quot;&gt;fibonacci(&lt;span class=&quot;pl-c1&quot;&gt;10&lt;/span&gt;);&lt;/span&gt;&lt;/td&gt;      &lt;/tr&gt;&lt;/table&gt;  &lt;/div&gt;  &lt;/div&gt;  &lt;/div&gt;      &lt;/div&gt;      &lt;div class=&quot;gist-meta&quot;&gt;        &lt;a href=&quot;https://gist.github.com/biroa/f8ec3349e3544700f1c1/raw/eb7796226d6733df71e417722d78963da71ae921/Fibonacci.php&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt;        &lt;a href=&quot;https://gist.github.com/biroa/f8ec3349e3544700f1c1#file-fibonacci-php&quot;&gt;Fibonacci.php&lt;/a&gt;        hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;      &lt;/div&gt;    &lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Tue, 03 Nov 2015 13:00:00 +0100</pubDate>
-        <link>https://www.adambiro.eu//algorithms/2015/11/03/fibonacci-sequence/</link>
-        <guid isPermaLink="true">https://www.adambiro.eu//algorithms/2015/11/03/fibonacci-sequence/</guid>
+        <link>http://0.0.0.0:2999/algorithms/2015/11/17/fibonacci-sequence-recusively/</link>
+        <guid isPermaLink="true">http://0.0.0.0:2999/algorithms/2015/11/17/fibonacci-sequence-recusively/</guid>
         
         <category>algorithms fibonacci sequence php coding</category>
         
